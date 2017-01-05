@@ -7,15 +7,19 @@
     <meta name="author" content="Furora Media Ltd">
     <meta name="theme-color" content="#7e4a97">
     <title>Furora Media Ltd | Web Development Consultancy based in Essex / London</title>
-    <%_ if (process.env.NODE_ENV === 'production') { _%>
+    <%_ if (process.env.NODE_ENV === 'production') { %>
       <link href="/static/manifest.json" rel="manifest" />
-      <!-- <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" /> -->
-    <%_ } _%>
-    <style>
-    <% css %>
-    </style>
+      <% if (process.env.INLINE_STYLE === true) { %>
+        <style><%= css %></style>
+        <% } else { %>
+          <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" />
+          <% } %>
+    <%_ } %>
+    
+    <!--hello -->
   </head>
   <body>
+    
     <div id="app"><% body %></div>
     <script src="/static/bundle.js?v=<%- process.env.DEPLOY_VERSION -%>"></script>
     <!-- <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaLoaded&render=explicit" async defer></script> -->

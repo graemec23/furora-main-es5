@@ -8,14 +8,10 @@ const path = require('path');
 const store = require('../../client/store');
 const myRoutes = require('../../client/routes');
 
+const cssPath = path.join(__dirname, '../../client/dist/styles.css');
 
-const css = fs.readFile(path.join(__dirname, '../../client/dist/styles.css'), (err, data) => {
-  if (err) {
-    console.log('error occured');
-  }
-  console.log(data)
-  return data;
-});
+
+
 
 const reactRoutes = (app) => {
   app.use((req, res) => {
@@ -25,6 +21,7 @@ const reactRoutes = (app) => {
       } else if (redirect) {
         res.redirect(302, redirect.pathname + redirect.search);
       } else if (props) {
+        const css = fs.readFileSync(cssPath, 'utf-8');
         const body = renderToStaticMarkup(
           React.createElement(Provider, { store }, React.createElement(RouterContext, props)),
         );
