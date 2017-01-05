@@ -9,14 +9,12 @@
     <title>Furora Media Ltd | Web Development Consultancy based in Essex / London</title>
     <%_ if (process.env.NODE_ENV === 'production') { %>
       <link href="/static/manifest.json" rel="manifest" />
-      <% if (process.env.INLINE_STYLE === true) { %>
+      <% if (process.env.INLINE_STYLE) { %>
         <style><%= css %></style>
         <% } else { %>
           <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" />
           <% } %>
     <%_ } %>
-    
-    <!--hello -->
   </head>
   <body>
     
