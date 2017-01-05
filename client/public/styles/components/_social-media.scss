@@ -1,0 +1,23 @@
+@include block(c-social-media) {
+  float: right;
+  @include modifier(light) {
+    @include element(icon) {
+      transition: fill .4s ease;
+      fill: $white;
+      
+      &:hover {
+        fill: $cta-hover-color;
+      }
+      @include modifier(tall) {
+        vertical-align: middle;
+      }
+    }
+  }
+  
+  @include element(item) {
+    float: left;
+  }
+  @include mq($from: mobile, $until: tablet) {
+    display: none;
+  }
+}
