@@ -22,6 +22,7 @@ const expressConfig = (app) => {
     maxAge: serverConfig.cacheTime,
   }));
   // app.use('/api/v1', api);
+
 };
 
 module.exports = expressConfig;

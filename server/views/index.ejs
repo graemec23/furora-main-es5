@@ -11,6 +11,9 @@
       <link href="/static/manifest.json" rel="manifest" />
       <link href="/static/styles.css?v=<%- process.env.DEPLOY_VERSION -%>" rel="stylesheet" />
     <%_ } _%>
+    <style>
+    <% css %>
+    </style>
   </head>
   <body>
     <div id="app"><% body %></div>
