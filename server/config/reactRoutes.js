@@ -11,10 +11,11 @@ const myRoutes = require('../../client/routes');
 
 const css = fs.readFile(path.join(__dirname, '../../client/dist/styles.css'), (err, data) => {
   if (err) {
-    console.log('error occured')
+    console.log('error occured');
   }
+  console.log(data)
   return data;
-})
+});
 
 const reactRoutes = (app) => {
   app.use((req, res) => {
